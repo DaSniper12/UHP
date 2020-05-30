@@ -9,13 +9,16 @@ var firebaseConfig = {
   appId: "1:615262963126:web:70a5d974a3d7dc39d6ed17"
 };
 // Initialize Firebase
-var u
+var uAuth
+let uDb
 var userType
+let appointmentNum = 0
 let db
 
 (function() {
   firebase.initializeApp(firebaseConfig);
   db = firebase.database()
+  authChange()
 })()
 
 function signUp() {
@@ -25,9 +28,9 @@ function signUp() {
   let inputName = document.getElementById("signup-name").value;
   let inputDate = document.getElementById("signup-date").value;
   firebase.auth().createUserWithEmailAndPassword(inputEmail, inputPassword).then(userCredential => {
-    u = userCredential.user
-    window.location.href = "dashboard.html"
-    ref = db.ref("Users/" + u.uid)
+    uAuth = userCredential.user
+    console.log(uAuth);
+    ref = db.ref("Users/" + uAuth.uid)
     ref.set({
       email: inputEmail,
       dob: inputDate,
@@ -40,6 +43,7 @@ function signUp() {
       console.log("error");
       console.err(error.code);
     })
+    window.location.href = "dashboard.html"
   }).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
@@ -54,7 +58,8 @@ function signIn() {
   let inputEmail = document.getElementById("login-email").value;
   let inputPassword = document.getElementById("login-password").value;
   firebase.auth().signInWithEmailAndPassword(inputEmail, inputPassword).then(user => {
-    u = user.user
+    uAuth = user.user
+    console.log(uAuth);
     window.location.href = "dashboard.html"
   }).catch(function(error) {
     // An error happened.
@@ -68,7 +73,7 @@ function signIn() {
 function signOut() {
   firebase.auth().signOut().then(function() {
     // Sign-out successful.
-    u = null
+    uAuth = null
     window.location.href = "index.html"
     console.log("sign out succesful");
   }).catch(function(error) {
@@ -76,49 +81,62 @@ function signOut() {
     console.log(error);
   });
 }
-
 function authChange() {
-  firebase.auth().onAuthStateChanged(function(user) {
+  firebase.auth().onAuthStateChanged(async function(user) {
     if (user) {
-      // User is signed in.
-      u = user
-    } else {
-      // No user is signed in.
-    }
+      uAuth = user
+      let ref = db.ref("Users/" + uAuth.uid)
+      await ref.once('value', (snapshot => uDb = snapshot.val()), (err => {
+        if (error) {
+          console.error(error.code);
+          console.log(error.message);
+        }
+      }))
+
+      let account = document.getElementById("account")
+      if (account)
+        account.innerHTML = uDb.name
+
+      if (window.location.pathname == "/profile.html")
+        await fillProfileInfo()
+      if (window.location.pathname == "/appointments.html")
+        await getAppointmentData()
+    } else
+    uAuth = null
   });
+  return true
 }
 
-function getProfileInfo(){
-  document.getElementById("trial").innerHTML = "Load Works";
-  // var name;//firebase name etc
-  // var gender;
-  // var dob;
-  // var email;
-  // var phoneNumber;
-  // var height;
-  // var weight;
-  // var eyeColor;
-  // var bloodType;
-  // var hipSize;
-  // var allergies;
-  // var substanceAbuse;
-  // var ltd;
-  //
-  // document.getElementById("nameInput").placeholder = name;
-  // document.getElementById("genderInput").placeholder = gender;
-  // document.getElementById("dobInput").placeholder = dob;
-  // document.getElementById("emailIbput").placeholder = email;
-  // document.getElementById("phoneNumberInput").placeholder = phoneNumber;
-  // document.getElementById("heightInput").placeholder = height;
-  // document.getElementById("weightInput").placeholder = weight;
-  // document.getElementById("eyeColorInput").placeholder = eyeColor;
-  // document.getElementById("bloodTypeInput").placeholder = bloodType;
-  // document.getElementById("hipSizeInput").placeholder = hipSize;
-  // document.getElementById("allergiesnput").placeholder = allergies;
-  // document.getElementById("substanceAbuseInput").placeholder = substanceAbuse;
-  // document.getElementById("ltdInput").placeholder = ltd;
-}
+function fillProfileInfo() {
+  console.log(uDb);
+  let email       = uDb.email,
+      dob         = uDb.dob,
+      name        = uDb.name,
+      gender      = uDb.gender,
+      phoneNumber = uDb.phoneNumber,
+      height      = uDb.height,
+      weight      = uDb.weight,
+      bloodType   = uDb.bloodType,
+      hipSize     = uDb.hipSize,
+      eyeColor    = uDb.eyeColor,
+      allergies   = uDb.allergies,
+      substanceAbuse = uDb.substanceAbuse,
+      ltd         = uDb.ltd;
 
+  document.getElementById("nameInput").value = name;
+  document.getElementById("genderInput").value = gender;
+  document.getElementById("dobInput").value = dob;
+  document.getElementById("emailInput").value = email;
+  document.getElementById("phoneNumberInput").value = phoneNumber;
+  document.getElementById("heightInput").value = height;
+  document.getElementById("weightInput").value = weight;
+  document.getElementById("eyeColorInput").value = eyeColor;
+  document.getElementById("bloodTypeInput").value = bloodType;
+  document.getElementById("hipSizeInput").value = hipSize;
+  document.getElementById("allergiesInput").value = allergies;
+  document.getElementById("substanceAbuseInput").value = substanceAbuse;
+  document.getElementById("ltdInput").value = ltd;
+}
 function editProfile(){
   // document.getElementById("trial").innerHTML = "Trial";
 
@@ -172,7 +190,6 @@ function editProfile(){
   //document.getElementById().value
 
 }
-
 function saveChanges(){
   //switching back the edit and save changes buttons
   document.getElementById("edit-profile").style.display = "block";
@@ -194,8 +211,8 @@ function saveChanges(){
   var substanceAbuseInput = document.getElementById("substanceAbuseInput").value;
   var ltdInput = document.getElementById("ltdInput").value;
 
-  // updateProfile(nameInput, dobInput, genderInput, emailInput, phoneNumberInput, heightInput, weightInput,
-  //  eyeColorInput, bloodTypeInput, hipSizeInput, allergiesInput, substanceAbuseInput, ltdInput);
+  updateProfile(nameInput, dobInput, genderInput, emailInput, phoneNumberInput, heightInput, weightInput,
+   eyeColorInput, bloodTypeInput, hipSizeInput, allergiesInput, substanceAbuseInput, ltdInput);
 
 
   // document.getElementById("trial").innerHTML = firstName;
@@ -246,35 +263,10 @@ function saveChanges(){
 
 }
 
-function getProfileData() {
-  ref = db.ref("Users/" + u.uid)
-  ref.once('value', (snapshot => {
-    let profile     = snapshot.val()
-        email       = profile.email,
-        dob         = profile.dob,
-        name        = profile.name,
-        gender      = profile.gender,
-        phoneNumber = profile.phoneNumber,
-        height      = profile.height,
-        weight      = profile.weight,
-        bloodType   = profile.bloodType,
-        hipSize     = profile.hipSize,
-        eyeColor    = profile.eyeColor,
-        allergies   = profile.allergies,
-        substanceAbuse = profile.substanceAbuse,
-        ltd         = profile.ltd;
-    getProfileInfo(email, dob, name, gender, phoneNumber, height, weight, bloodType, hipSize, eyeColor, allergies, substanceAbuse, ltd)
-  }), (err => {
-    if (error) {
-      // The write failed...
-      console.error(error.code);
-      console.log(error.message);
-    }
-  })))
-}
-
-function updateProfile() {
-  ref = db.ref("Users/" + u.uid)
+function updateProfile(nameInput, dobInput, genderInput, emailInput,
+  phoneNumberInput, heightInput, weightInput, eyeColorInput, bloodTypeInput,
+  hipSizeInput, allergiesInput, substanceAbuseInput, ltdInput) {
+  ref = db.ref("Users/" + uAuth.uid)
   ref.update({
     email: emailInput,
     dob: dobInput,
@@ -307,11 +299,15 @@ function submitAppointmentData() {
   let inputDoctor = document.getElementById("newDoctorsName").value;
   let inputDate = document.getElementById("newDate").value;
   appointmentRef = db.ref("Appointments/").push()
-  userRef = db.ref("User/Appointments/")
+  userRef = db.ref("Users/" + uAuth.uid + "/Appointments/")
+  let appointmentKey = appointmentRef.key
+  let updates = {}
+  updates['/' + appointmentKey] = true;
+
   appointmentRef.set({
     doctor: inputDoctor,
     date: inputDate,
-    patient: u.uid
+    patient: uAuth.uid
   }).then((result) => {
     // The signed-in user info.
     console.log("success");
@@ -320,36 +316,35 @@ function submitAppointmentData() {
     console.log("error");
     console.err(error.code);
   })
-
-  userRef.update({
-    appointmentRef.key(): true
-  }).then((result) => {
+  userRef.update(updates)
+  .then((result) => {
     // The signed-in user info.
     console.log("success");
-  }).catch((error) => {
+  })
+  .catch((error) => {
     // Handle Errors here.
     console.log("error");
     console.err(error.code);
   })
+  // userRef.update({
+  //   appointmentKey: true
+  // }
 }
 function getAppointmentData() {
-  let ref = db.ref("Appointments");
-  ref.orderByChild("uid").equalTo(user.uid).on('child_added', (snapshot => {
-    let requests    = snapshot.val()
-        address     = requests.address,
-        date        = requests.date,
-        store       = requests.store,
-        items       = requests.items,
-        cancelled   = requests.cancelled,
-        completed   = requests.completed,
-        phoneNumber = requests.phone_num;
-    createRequestDiv(requestNum++, '#' + snapshot.key, date, store, items, address, cancelled, completed, phoneNumber, null)
+  let userRef = db.ref("Users/" + uAuth.uid + "/Appointments");
+  userRef.on('child_added', (snapshot => {
+    let appointmentRef  = db.ref("Appointments/" + snapshot.key);
+    console.log(snapshot.key);
+    console.log(appointmentRef);
+    appointmentRef.once('value').then(function(snapshot) {
+      let data = snapshot.val(),
+          doctorName = data.doctor,
+          date = data.date;
+      console.log(data);
+      createAppointmentDiv(appointmentNum++, doctorName, date)
+    })
   }), (err => {
-    if (error) {
-      // The write failed...
-      $("#error-toast").toast('show')
-      let errorMessage = "There was an error with recieving your requests. There error code is: <strong>" + error.code + "</strong>. Please contact us for help."
-      $("#error-message").html(errorMessage)
-    }
+    console.log(error.message);
+    console.err(error.code);
   }))
 }
