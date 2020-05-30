@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Sets title of website -->
+    <title>UHP</title>
+
+    <!-- Sets links for website -->
+    <link rel="shortcut icon" href="logo.svg" sizes="16x8.828" type="image/x-icon" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" src="https://cdn.jsdelivr.net/sweetalert2/6.6.0/sweetalert2.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+  <body class="bg-light text-dark">
+
+    <!-- Main Body Containers -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <h1 class="title">Appointments</h1>
+      </div>
+    </div>
+    <div class="container mt-5" id="futureAppoint">
+      <div class="card">
+        <div class="card-body">
+          <div class="row justify-content-between">
+            <div class="col my-auto">Appointment Number</div>
+            <div class="col-3">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#appointmentInfo">Show more</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newAppointment">
+      Schedule new appointment
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="newAppointment" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="newAppointmentLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newAppointmentLabel">New Appointment</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="doctorsName">Doctor's Name</label>
+                  <input type="text" class="form-control" id="doctorsName">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="date">Date</label>
+                  <input type="date" class="form-control" id="date">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <div class="form-check">
+              <input class="form-check-input mx-auto" type="checkbox" id="gridCheck">
+              <label class="form-check-label" for="gridCheck">
+                Agree to <a href="#">Terms and Conditions</a>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="appointmentInfo" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="appointmentInfoLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="appointmentInfoLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group row">
+                <label for="doctor" class="col-sm-2 col-form-label">Doctor:</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="doctor" value="Ada" readonly>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="date" class="col-sm-2 col-form-label">Date:</label>
+                <div class="col-sm-10">
+                  <input type="date" class="form-control-plaintext" id="date" value="2020-05-30" readonly>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Understood</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Later on -->
+    <!-- <div class="container">
+      <hr class="hr-styles bg-dark">
+      <div class="row collapse-title">
+        <div class="col-1 ml-sm-5 mr-n1 mr-sm-n3 mr-md-n4 my-auto">
+          <svg class="bi bi-chevron-right chevron" id="pastChevron" onclick="togglePastAppointments()" data-target="#pastChevron" aria-expanded="false" aria-controls="pastAppoint" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <div class="col text-dark">
+          <span class="glyphicon glyphicon-menu-right"></span>
+          Previous
+        </div>
+      </div>
+    </div>
+    <div class="container collapse" id="pastAppoint"> -->
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Including only the Firebase features we need -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-messaging.js"></script> -->
+
+    <script src="js/firebase-setup.js"></script>
+    <!-- <script src="js/requests.js"></script> -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
