@@ -96,47 +96,47 @@ function editProfile(){
   document.getElementById("save-changes").style.display = "block";
 
   //making the textfields changeable
-  document.getElementById("firstName").readOnly = false;
-  document.getElementById("firstName").style.border = "2px solid black";
+  document.getElementById("nameInput").readOnly = false;
+  document.getElementById("nameInput").style.border = "2px solid black";
 
-  document.getElementById("lastName").readOnly = false;
-  document.getElementById("lastName").style.border = "2px solid black";
+  // document.getElementById("lastName").readOnly = false;
+  // document.getElementById("lastName").style.border = "2px solid black";
 
-  document.getElementById("gender").readOnly = false;
-  document.getElementById("gender").style.border = "2px solid black";
+  document.getElementById("genderInput").readOnly = false;
+  document.getElementById("genderInput").style.border = "2px solid black";
 
-  document.getElementById("dob").readOnly = false;
-  document.getElementById("dob").style.border = "2px solid black";
+  document.getElementById("dobInput").readOnly = false;
+  document.getElementById("dobInput").style.border = "2px solid black";
 
-  document.getElementById("phoneNumber").readOnly = false;
-  document.getElementById("phoneNumber").style.border = "2px solid black";
+  document.getElementById("phoneNumberInput").readOnly = false;
+  document.getElementById("phoneNumberInput").style.border = "2px solid black";
 
-  document.getElementById("email").readOnly = false;
-  document.getElementById("email").style.border = "2px solid black";
+  document.getElementById("emailInput").readOnly = false;
+  document.getElementById("emailInput").style.border = "2px solid black";
 
-  document.getElementById("height").readOnly = false;
-  document.getElementById("height").style.border = "2px solid black";
+  document.getElementById("heightInput").readOnly = false;
+  document.getElementById("heightInput").style.border = "2px solid black";
 
-  document.getElementById("weight").readOnly = false;
-  document.getElementById("weight").style.border = "2px solid black";
+  document.getElementById("weightInput").readOnly = false;
+  document.getElementById("weightInput").style.border = "2px solid black";
 
-  document.getElementById("bloodType").readOnly = false;
-  document.getElementById("bloodType").style.border = "2px solid black";
+  document.getElementById("bloodTypeInput").readOnly = false;
+  document.getElementById("bloodTypeInput").style.border = "2px solid black";
 
-  document.getElementById("hipSize").readOnly = false;
-  document.getElementById("hipSize").style.border = "2px solid black";
+  document.getElementById("hipSizeInput").readOnly = false;
+  document.getElementById("hipSizeInput").style.border = "2px solid black";
 
-  document.getElementById("allergies").readOnly = false;
-  document.getElementById("allergies").style.border = "2px solid black";
+  document.getElementById("allergiesInput").readOnly = false;
+  document.getElementById("allergiesInput").style.border = "2px solid black";
 
-  document.getElementById("eyeColor").readOnly = false;
-  document.getElementById("eyeColor").style.border = "2px solid black";
+  document.getElementById("eyeColorInput").readOnly = false;
+  document.getElementById("eyeColorInput").style.border = "2px solid black";
 
-  document.getElementById("substanceAbuse").readOnly = false;
-  document.getElementById("substanceAbuse").style.border = "2px solid black";
+  document.getElementById("substanceAbuseInput").readOnly = false;
+  document.getElementById("substanceAbuseInput").style.border = "2px solid black";
 
-  document.getElementById("ltd").readOnly = false;
-  document.getElementById("ltd").style.border = "2px solid black";
+  document.getElementById("ltdInput").readOnly = false;
+  document.getElementById("ltdInput").style.border = "2px solid black";
 
   //document.getElementById().value
 
@@ -148,66 +148,69 @@ function saveChanges(){
   document.getElementById("save-changes").style.display = "none";
 
   //getting information from the input textfields
-  var firstName = document.getElementById("firstName").value;
-  var lastName = document.getElementById("lastName").value;
-  var dob = document.getElementById("dob").value;
-  var gender = document.getElementById("gender").value;
-  var email = document.getElementById("email").value;
-  var phoneNumber = document.getElementById("phoneNumber").value;
-  var height = document.getElementById("height").value;
-  var weight = document.getElementById("weight").value;
-  var eyeColor = document.getElementById("eyeColor").value;
-  var bloodType = document.getElementById("bloodType").value;
-  var hipSize = document.getElementById("hipSize").value;
-  var allergies = document.getElementById("allergies").value;
-  var substanceAbuse = document.getElementById("substanceAbuse").value;
-  var ltd = document.getElementById("ltd").value;
+  var nameInput = document.getElementById("nameInput").value;
+  // var lastName = document.getElementById("lastName").value;
+  var dobInput = document.getElementById("dobInput").value;
+  var genderInput = document.getElementById("genderInput").value;
+  var emailInput = document.getElementById("emailInput").value;
+  var phoneNumberInput = document.getElementById("phoneNumberInput").value;
+  var heightInput = document.getElementById("heightInput").value;
+  var weightInput = document.getElementById("weightInput").value;
+  var eyeColorInput = document.getElementById("eyeColorInput").value;
+  var bloodTypeInput = document.getElementById("bloodTypeInput").value;
+  var hipSizeInput = document.getElementById("hipSizeInput").value;
+  var allergiesInput = document.getElementById("allergiesInput").value;
+  var substanceAbuseInput = document.getElementById("substanceAbuseInput").value;
+  var ltdInput = document.getElementById("ltdInput").value;
+
+  // updateProfile(nameInput, dobInput, genderInput, emailInput, phoneNumberInput, heightInput, weightInput,
+  //  eyeColorInput, bloodTypeInput, hipSizeInput, allergiesInput, substanceAbuseInput, ltdInput);
 
 
   // document.getElementById("trial").innerHTML = firstName;
 
   //making the textfields unchangeable
-  document.getElementById("firstName").readOnly = true;
-  document.getElementById("firstName").style.border = "none";
+  document.getElementById("nameInput").readOnly = true;
+  document.getElementById("nameInput").style.border = "none";
 
-  document.getElementById("lastName").readOnly = true;
-  document.getElementById("lastName").style.border = "none";
+  // document.getElementById("lastName").readOnly = true;
+  // document.getElementById("lastName").style.border = "none";
 
-  document.getElementById("gender").readOnly = true;
-  document.getElementById("gender").style.border = "none";
+  document.getElementById("genderInput").readOnly = true;
+  document.getElementById("genderInput").style.border = "none";
 
-  document.getElementById("dob").readOnly = true;
-  document.getElementById("dob").style.border = "none";
+  document.getElementById("dobInput").readOnly = true;
+  document.getElementById("dobInput").style.border = "none";
 
-  document.getElementById("phoneNumber").readOnly = true;
-  document.getElementById("phoneNumber").style.border = "none";
+  document.getElementById("phoneNumberInput").readOnly = true;
+  document.getElementById("phoneNumberInput").style.border = "none";
 
-  document.getElementById("email").readOnly = true;
-  document.getElementById("email").style.border = "none";
+  document.getElementById("emailInput").readOnly = true;
+  document.getElementById("emailInput").style.border = "none";
 
-  document.getElementById("height").readOnly = true;
-  document.getElementById("height").style.border = "none";
+  document.getElementById("heightInput").readOnly = true;
+  document.getElementById("heightInput").style.border = "none";
 
-  document.getElementById("weight").readOnly = true;
-  document.getElementById("weight").style.border = "none";
+  document.getElementById("weightInput").readOnly = true;
+  document.getElementById("weightInput").style.border = "none";
 
-  document.getElementById("bloodType").readOnly = true;
-  document.getElementById("bloodType").style.border = "none";
+  document.getElementById("bloodTypeInput").readOnly = true;
+  document.getElementById("bloodTypeInput").style.border = "none";
 
-  document.getElementById("hipSize").readOnly = true;
-  document.getElementById("hipSize").style.border = "none";
+  document.getElementById("hipSizeInput").readOnly = true;
+  document.getElementById("hipSizeInput").style.border = "none";
 
-  document.getElementById("allergies").readOnly = true;
-  document.getElementById("allergies").style.border = "none";
+  document.getElementById("allergiesInput").readOnly = true;
+  document.getElementById("allergiesInput").style.border = "none";
 
-  document.getElementById("eyeColor").readOnly = true;
-  document.getElementById("eyeColor").style.border = "none";
+  document.getElementById("eyeColorInput").readOnly = true;
+  document.getElementById("eyeColorInput").style.border = "none";
 
-  document.getElementById("substanceAbuse").readOnly = true;
-  document.getElementById("substanceAbuse").style.border = "none";
+  document.getElementById("substanceAbuseInput").readOnly = true;
+  document.getElementById("substanceAbuseInput").style.border = "none";
 
-  document.getElementById("ltd").readOnly = true;
-  document.getElementById("ltd").style.border = "none";
+  document.getElementById("ltdInput").readOnly = true;
+  document.getElementById("ltdInput").style.border = "none";
 
 
 }
