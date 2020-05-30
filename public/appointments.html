@@ -31,7 +31,7 @@
         <ul class="navbar-nav mr-auto active">
         </ul>
         <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" id="account" aria-expanded="false">Omar Abouelazm</a>
+            <a href="#" class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" id="account" aria-expanded="false"></a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="profile.html">Edit Profile</a>
               <a class="dropdown-item" href="index.html" onclick="signOut()">Log Out</a>
@@ -55,7 +55,7 @@
           <div class="row justify-content-between">
             <div class="col my-auto">Appointment Number</div>
             <div class="col-3">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#appointmentInfo">Show more</button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#appointmentInfo" onclick="">Show more</button>
             </div>
           </div>
         </div>
@@ -102,7 +102,7 @@
                 Agree to <a href="#">Terms and Conditions</a>
               </label>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="displayAppointments()">Submit</button>
           </div>
         </div>
       </div>
@@ -113,7 +113,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="appointmentInfoLabel">Modal title</h5>
+            <h5 class="modal-title" id="appointmentInfoLabel">Appointment - <span id="appointmentNumber"></span> </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

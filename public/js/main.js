@@ -39,6 +39,47 @@ function viewProfile() {
   window.location.href("profile.html");
 }
 
+var appointmentNumber = 0;
+
+function getAppointmentNumber() {
+
+}
+
+function openAppointment() {
+
+}
+
+function submitAppointment() {
+    appointmentNumber = getAppointmentNumber() + 1;
+
+}
+
+function displayAppointments() {
+    var doctorName = "";
+    var date = "";
+
+    createAppointmentDiv(appointmentNumber++, doctorName, date);
+}
+
+function createAppointmentDiv(divNumber, doctorName, date) {
+  if ($("#gridCheck").is(":checked")) {
+    let template = '<div class="container mt-5" id="futureAppoint">' +
+                   '  <div class="card">' +
+                   '    <div class="card-body">' +
+                   '      <div class="row justify-content-between">' +
+                   '        <div class="col my-auto">Appointment Number - ' + divNumber + '</div>' +
+                   '        <div class="col-3">' +
+                   '          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#appointmentInfo" onclick="">Show more</button>' +
+                   '        </div>' +
+                   '      </div>' +
+                   '    </div>' +
+                   '  </div>'
+                   '</div>';
+
+      $("#futureAppoint").append(template);
+    }
+  }
+  
 function createRequestDiv (divNumber, requestNum, date, store, item, address, cancelled, completed, phoneNumber, username, testMode) {
   let requestString = requestNum.slice(1)
   console.log(requestString);
