@@ -38,7 +38,7 @@
 
   </head>
 
-  <body class="bg-light text-dark ">
+  <body class="bg-light text-dark " onload="getProfileInfo()">
 
     <!-- Setting up the navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -55,6 +55,7 @@
             <a id="requests" style="display: none" class="nav-link nav-text" href="/requests.html">Requests</a>
           </li>
         </ul>
+        <button onload="getProfileInfo()"></button>
         <button id="edit-profile" style="display: true" class="nav-item mr-4 nav-text btn btn-outline-info" onclick="editProfile()">Edit</button>
         <button id="save-changes" style="display: none;" class="nav-item mr-4 nav-text btn btn-primary" onclick="saveChanges()">Save Changes</button>
         <button id="sign-out" style="display: true" class="nav-item mr-4 nav-text btn btn-outline-dark" onclick="signOut()">Logout</button>
@@ -94,7 +95,7 @@
           <hr class="hr-styles mt-0 my-2 bg-dark">
 
          <!-- <div id="trial">
-            </div>` -->
+            </div> -->
 
           <p class="" style="margin-top: 2%;">
             Height : <input type="text" class="form-control w-50 InlineInput" id="heightInput"  placeholder="Height (m)" aria-label="Height" aria-describedby="Height" readonly>
@@ -139,7 +140,7 @@
             <h6 class="my-3">
              Name:
             </h6>
-            <input type="text" class="form-control w-50 my-2 no-border" id="nameInput" value="Name"   readonly>
+            <input type="text" class="form-control w-50 my-2 no-border" id="nameInput" placeholder="Name"  readonly>
 
             <!-- <h6>
               Last Name:
@@ -148,12 +149,12 @@
               <h6>
                 Gender:
               </h6>
-                <input type="text" class="form-control w-50 my-2 no-border" id="genderInput"  readonly>
+                <input type="text" class="form-control w-50 my-2 no-border" id="genderInput" placeholder="Gender"  readonly>
 
               <h6>
               Date of Birth :
               </h6>
-              <input type="date" class="form-control w-50 my-2 no-border" id="dobInput"  readonly>
+              <input type="date" class="form-control w-50 my-2 no-border" id="dobInput" placeholder="Date/Month/Year"  readonly>
 
           </div>
 
@@ -168,11 +169,11 @@
 
             <h6>
               Phone Number:
-              <input type="tel" class="form-control w-50 my-2 no-border" id="phoneNumberInput"  readonly>
+              <input type="tel" class="form-control w-50 my-2 no-border" id="phoneNumberInput" placeholder="Phone Number(xxx-xxx-xxxx)"  readonly>
             </h6>
             <h6>
               Email:
-              <input type="email" class="form-control w-50 my-2 no-border" id="emailInput" style="margin-bottom: -20px;"  readonly>
+              <input type="email" class="form-control w-50 my-2 no-border" id="emailInput" placeholder="Email(someone@email.com)" style="margin-bottom: -20px;"  readonly>
             </h6>
           </div>
         </div>

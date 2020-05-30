@@ -88,6 +88,37 @@ function authChange() {
   });
 }
 
+function getProfileInfo(){
+  document.getElementById("trial").innerHTML = "Load Works";
+  // var name;//firebase name etc
+  // var gender;
+  // var dob;
+  // var email;
+  // var phoneNumber;
+  // var height;
+  // var weight;
+  // var eyeColor;
+  // var bloodType;
+  // var hipSize;
+  // var allergies;
+  // var substanceAbuse;
+  // var ltd;
+  //
+  // document.getElementById("nameInput").placeholder = name;
+  // document.getElementById("genderInput").placeholder = gender;
+  // document.getElementById("dobInput").placeholder = dob;
+  // document.getElementById("emailIbput").placeholder = email;
+  // document.getElementById("phoneNumberInput").placeholder = phoneNumber;
+  // document.getElementById("heightInput").placeholder = height;
+  // document.getElementById("weightInput").placeholder = weight;
+  // document.getElementById("eyeColorInput").placeholder = eyeColor;
+  // document.getElementById("bloodTypeInput").placeholder = bloodType;
+  // document.getElementById("hipSizeInput").placeholder = hipSize;
+  // document.getElementById("allergiesnput").placeholder = allergies;
+  // document.getElementById("substanceAbuseInput").placeholder = substanceAbuse;
+  // document.getElementById("ltdInput").placeholder = ltd;
+}
+
 function editProfile(){
   // document.getElementById("trial").innerHTML = "Trial";
 
