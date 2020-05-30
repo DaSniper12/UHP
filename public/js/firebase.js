@@ -26,6 +26,7 @@ function signUp() {
   let inputDate = document.getElementById("signup-date").value;
   firebase.auth().createUserWithEmailAndPassword(inputEmail, inputPassword).then(userCredential => {
     u = userCredential.user
+    window.location.href = "dashboard.html"
     ref = db.ref("Users/" + u.uid)
     ref.set({
       email: inputEmail,
@@ -52,24 +53,30 @@ function signIn() {
   // List of data gathered: date, name, email, password
   let inputEmail = document.getElementById("login-email").value;
   let inputPassword = document.getElementById("login-password").value;
-  firebase.auth().signInWithEmailAndPassword(inputEmail, inputPassword).then(user => u = user.user).catch(function(error) {
+  firebase.auth().signInWithEmailAndPassword(inputEmail, inputPassword).then(user => {
+    u = user.user
+    window.location.href = "dashboard.html"
+  }).catch(function(error) {
     // An error happened.
     var errorCode = error.code;
     var errorMessage = error.message;
     console.log(errorCode);
     console.log(errorMessage);
   });
+
 }
 function signOut() {
   firebase.auth().signOut().then(function() {
     // Sign-out successful.
     u = null
+    window.location.href = "index.html"
     console.log("sign out succesful");
   }).catch(function(error) {
     // An error happened.
     console.log(error);
   });
 }
+
 function authChange() {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
