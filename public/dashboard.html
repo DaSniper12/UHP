@@ -19,7 +19,7 @@
   </head>
   <body class="bg-light text-dark">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="dashboard.html">
         <img src="img/logo.png" class="mr-1 d-inline-block align-top" width="45" height="45">
         <strong class="align-middle custom-nav-text nav-text">Universal Health Profile</strong>
       </a>
@@ -28,18 +28,13 @@
       </button>
       <div class="collapse navbar-collapse text-dark" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto active">
-          <li class="nav-item">
-            <a id="requests" style="display: none" class="nav-link nav-text" href="/requests.html">Requests</a>
-          </li>
         </ul>
         <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" id="account" aria-expanded="false">Omar Abouelazm</a>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li class="dropdown-item"><div id="edit-profile">Edit Profile</div></li>
-              <li class="dropdown-item"><div id="sign-out">Logout</div></li>
-              <li class="dropdown-item"><a href="profile.html">Edit Profile</a></li>
-              <li class="dropdown-item"><a  onclick="signOut" href="index.html">Logout</a></li>
-            </ul>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="profile.html">Edit Profile</a>
+              <a class="dropdown-item" href="index.html" onclick="signOut()">Log Out</a>
+            </div>
         </div>
       </div>
     </nav>
@@ -79,7 +74,23 @@
               <div class="card-body">
                 <h5 class="card-title">Billings/Invoice</h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <a href="#" class="btn btn-primary">View Your Billings</a>
+                <a href="general-billing.html" class="btn btn-primary">View Your Billings</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mx-auto mb-3" style="max-width: 540px;">
+          <div class="row no-gutters">
+            <div class="col-md-5 p-3">
+              <img src="img/prescription.png" height="" class="card-img align-middle" alt="...">
+            </div>
+            <div class="col-md-7">
+              <div class="card-body">
+                <h5 class="card-title">Prescriptions</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <a href="pharmacy.html" class="btn btn-primary">See Your Prescriptions</a>
               </div>
             </div>
           </div>
