@@ -82,7 +82,7 @@ function authChange() {
 }
 
 function editProfile(){
-  document.getElementById("trial").innerHTML = "Trial";
+  // document.getElementById("trial").innerHTML = "Trial";
 
   //removing display of edit button to allow display of save Changes
   document.getElementById("edit-profile").style.display = "none";
@@ -157,7 +157,7 @@ function saveChanges(){
   var ltd = document.getElementById("ltd").value;
 
 
-  document.getElementById("trial").innerHTML = firstName;
+  // document.getElementById("trial").innerHTML = firstName;
 
   //making the textfields unchangeable
   document.getElementById("firstName").readOnly = true;
@@ -203,4 +203,8 @@ function saveChanges(){
   document.getElementById("ltd").style.border = "none";
 
 
+}
+
+function billingSetDisabled(){
+  document.getElementById("")
 }
