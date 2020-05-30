@@ -51,7 +51,7 @@
           </li>
         </ul>
         <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" id="account" aria-expanded="false">Omar Abouelazm</a>
+            <a href="#" class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" id="account" aria-expanded="false"></a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="profile.html">Edit Profile</a>
               <a class="dropdown-item" href="index.html" onclick="signOut()">Log Out</a>
@@ -82,7 +82,7 @@
 
 
               <p class="card-text">
-                Last Bill Info
+                Information Avaible Below
               </p>
                   <!-- Cost : *insert cost*
                   <br>
@@ -95,9 +95,9 @@
 
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Cost: <span><i>*insert cost*</i></span></li>
-              <li class="list-group-item">Date: <span><i>*insert date*</i></span></li>
-              <li class="list-group-item">Paid: <span><i>*insert y/n*</i></span></li>
+              <li class="list-group-item">Cost: <span><i>$50</i></span></li>
+              <li class="list-group-item">Date: <span><i>30/5/2020</i></span></li>
+              <li class="list-group-item">Paid: <span class="btn btn-primary"><i>Valid</i></span></li>
             </ul>
 
           </div>
@@ -122,20 +122,45 @@
               <tbody>
                 <tr>
                   <th scope="row">1</th>
-                  <td>Doc Omar</td>
-                  <td>Too much CSS and Bootstrap</td>
-                  <td>Sat 30 May 2020</td>
-                  <td>$50</td>
-                  <td><input type="checkbox" class="form-check-input" id="" onclick="setDisabled()"></td>
+                  <td>Dr. Ami Juice</td>
+                  <td>Excessive Smoking</td>
+                  <td>21/04/2020</td>
+                  <td>$20</td>
+                    <td><input type="checkbox" class="form-check-input" id="" onlick="setDisabled()" checked></td>
                 </tr>
                 <tr>
                   <th scope="row">2</th>
-                  <td>Doc Adi</td>
-                  <td>Too much firebase</td>
-                  <td>30/05/2020</td>
+                  <td>Dr. Ami Juice</td>
+                  <td>Cause of Recent Bronchitis</td>
+                  <td>30/5/2020</td>
                   <td>$50</td>
+                  <td><input type="checkbox" class="form-check-input" id="" onclick="setDisabled()" checked></td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Dr. Ken Pan</td>
+                  <td>Excessive Coughing</td>
+                  <td>2/06/2020</td>
+                  <td>$65</td>
                     <td><input type="checkbox" class="form-check-input" id="" onlick="setDisabled()"></td>
                 </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>Dr. Ken Pan</td>
+                  <td>Medication Follow Up</td>
+                  <td>5/06/2020</td>
+                  <td>$0</td>
+                    <td><input type="checkbox" class="form-check-input" id="" onlick="setDisabled()"></td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>Dr. Ami Juice</td>
+                  <td>Check Up and Progress</td>
+                  <td>14/07/2020</td>
+                  <td>$20</td>
+                    <td><input type="checkbox" class="form-check-input" id="" onlick="setDisabled()"></td>
+                </tr>
+
               </tbody>
             </table>
           </div>
@@ -172,7 +197,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
     <!-- <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-messaging.js"></script> -->
 
-    <script src="js/firebase-setup.js"></script>
+    <script src="js/firebase.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

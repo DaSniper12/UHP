@@ -30,7 +30,7 @@ function signUp() {
     ref = db.ref("Users/" + u.uid)
     ref.set({
       email: inputEmail,
-      date: inputDate,
+      dob: inputDate,
       name: inputName
     }).then((result) => {
       // The signed-in user info.
@@ -246,6 +246,110 @@ function saveChanges(){
 
 }
 
+function getProfileData() {
+  ref = db.ref("Users/" + u.uid)
+  ref.once('value', (snapshot => {
+    let profile     = snapshot.val()
+        email       = profile.email,
+        dob         = profile.dob,
+        name        = profile.name,
+        gender      = profile.gender,
+        phoneNumber = profile.phoneNumber,
+        height      = profile.height,
+        weight      = profile.weight,
+        bloodType   = profile.bloodType,
+        hipSize     = profile.hipSize,
+        eyeColor    = profile.eyeColor,
+        allergies   = profile.allergies,
+        substanceAbuse = profile.substanceAbuse,
+        ltd         = profile.ltd;
+    getProfileInfo(email, dob, name, gender, phoneNumber, height, weight, bloodType, hipSize, eyeColor, allergies, substanceAbuse, ltd)
+  }), (err => {
+    if (error) {
+      // The write failed...
+      console.error(error.code);
+      console.log(error.message);
+    }
+  })))
+}
+
+function updateProfile() {
+  ref = db.ref("Users/" + u.uid)
+  ref.update({
+    email: emailInput,
+    dob: dobInput,
+    name: nameInput,
+    gender: genderInput,
+    phoneNumber: phoneNumberInput,
+    height: heightInput,
+    weight: weightInput,
+    bloodType: bloodTypeInput,
+    hipSize: hipSizeInput,
+    eyeColor: eyeColorInput,
+    allergies: allergiesInput,
+    substanceAbuse: substanceAbuseInput,
+    ltd: ltdInput
+  }).then((result) => {
+    // The signed-in user info.
+    console.log("success");
+  }).catch((error) => {
+    // Handle Errors here.
+    console.log("error");
+    console.err(error.code);
+  })
+}
+
 function billingSetDisabled(){
   document.getElementById("")
+}
+
+function submitAppointmentData() {
+  let inputDoctor = document.getElementById("newDoctorsName").value;
+  let inputDate = document.getElementById("newDate").value;
+  appointmentRef = db.ref("Appointments/").push()
+  userRef = db.ref("User/Appointments/")
+  appointmentRef.set({
+    doctor: inputDoctor,
+    date: inputDate,
+    patient: u.uid
+  }).then((result) => {
+    // The signed-in user info.
+    console.log("success");
+  }).catch((error) => {
+    // Handle Errors here.
+    console.log("error");
+    console.err(error.code);
+  })
+
+  userRef.update({
+    appointmentRef.key(): true
+  }).then((result) => {
+    // The signed-in user info.
+    console.log("success");
+  }).catch((error) => {
+    // Handle Errors here.
+    console.log("error");
+    console.err(error.code);
+  })
+}
+function getAppointmentData() {
+  let ref = db.ref("Appointments");
+  ref.orderByChild("uid").equalTo(user.uid).on('child_added', (snapshot => {
+    let requests    = snapshot.val()
+        address     = requests.address,
+        date        = requests.date,
+        store       = requests.store,
+        items       = requests.items,
+        cancelled   = requests.cancelled,
+        completed   = requests.completed,
+        phoneNumber = requests.phone_num;
+    createRequestDiv(requestNum++, '#' + snapshot.key, date, store, items, address, cancelled, completed, phoneNumber, null)
+  }), (err => {
+    if (error) {
+      // The write failed...
+      $("#error-toast").toast('show')
+      let errorMessage = "There was an error with recieving your requests. There error code is: <strong>" + error.code + "</strong>. Please contact us for help."
+      $("#error-message").html(errorMessage)
+    }
+  }))
 }
