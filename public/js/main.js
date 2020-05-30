@@ -79,9 +79,6 @@ function createAppointmentDiv(divNumber, doctorName, date) {
   })
 }
 
-      $("#futureAppoint").append(template);
-    }
-  }
 
 function createRequestDiv (divNumber, requestNum, date, store, item, address, cancelled, completed, phoneNumber, username, testMode) {
   let requestString = requestNum.slice(1)
