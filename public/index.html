@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- Sets title of website -->
-    <title>SpeeDelivery</title>
+    <title>Universal Health Profile</title>
 
     <!-- Sets links for website -->
     <script src="https://kit.fontawesome.com/13287563ee.js" crossorigin="anonymous"></script>
@@ -14,24 +14,6 @@
     <!-- <link rel="stylesheet" src="https://cdn.jsdelivr.net/sweetalert2/6.6.0/sweetalert2.min.css">  DONE -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-<<<<<<< HEAD
-=======
-    <link>
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
->>>>>>> ba7a293433054e1e63c9bb485687e99afae2e4e1
   </head>
 
   <body class="bg-light text-dark">
@@ -49,12 +31,98 @@
             <a id="requests" style="display: none" class="nav-link nav-text" href="/requests.html">Requests</a>
           </li>
         </ul>
-        <button id="sign-out" style="display: none" class="nav-item mr-4 nav-text btn btn-outline-dark">Logout</button>
-        <button id="login" style="display: true" class="nav-item mr-4 nav-text btn btn-outline-info">Login</button>
+        <button id="sign-up" data-toggle="modal" data-target="#sign-up-modal" style="display: true" class="nav-item mr-4 nav-text btn btn-outline-dark">Sign Up</button>
+        <button id="login" data-toggle="modal" data-target="#login-modal" style="display: true" class="nav-item mr-4 nav-text btn btn-outline-info">Login</button>
       </div>
     </nav>
     <div class="container-fluid mb-4">
       <hr class="hr-styles mt-0 bg-dark">
+    </div>
+
+    <div id="login-modal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Log In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row my-1 pl-4">
+              <div class="col-4">
+                Email:
+              </div>
+              <div class="col">
+                <input type="text" id="new-email" name="new-email">
+              </div>
+            </div>
+            <div class="row my-1 pl-4">
+              <div class="col-4">
+                Password:
+              </div>
+              <div class="col">
+                <input type="text" id="new-password" name="new-password">
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-info">Log In</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="sign-up-modal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Sign Up</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row my-1 pl-4">
+              <div class="col-4">
+                Email:
+              </div>
+              <div class="col">
+                <input type="text" id="new-email" name="new-email">
+              </div>
+            </div>
+            <div class="row my-1 pl-4">
+              <div class="col-4">
+                Password:
+              </div>
+              <div class="col">
+                <input type="text" id="new-password" name="new-password">
+              </div>
+            </div>
+            <div class="row my-1 pl-4">
+              <div class="col-4">
+                Name:
+              </div>
+              <div class="col">
+                <input type="text" id="new-name" name="new-name">
+              </div>
+            </div>
+            <div class="row my-1 pl-4">
+              <div class="col-4">
+                Date of birth:
+              </div>
+              <div class="col">
+                <input type="date" id="new-date" name="new-date">
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-info">Sign Up</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="container-fluid mu-4">
@@ -129,7 +197,7 @@
           <div class="col-12 col-sm-3 my-1 footer-text" onclick="aboutUsPage()">About Us</div>
           <div class="col-12 col-sm-3 my-1 footer-text" data-toggle="modal" data-target="#terms">Terms of Service </div>
           <div class="col-12 col-sm-3 my-1 footer-text" onclick="contactUsPage()">Contact Us</div>
-          <div class="col-12 col-sm-3 my-1 footer-text text-muted">Version 1.4</div>
+          <div class="col-12 col-sm-3 my-1 footer-text text-muted">Version 1.0</div>
         </div>
         <br>
       </div>
