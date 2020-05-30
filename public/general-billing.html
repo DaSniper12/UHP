@@ -37,7 +37,7 @@
 
     <!-- Setting up the navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="dashboard.html">
         <img src="img/logo.png" class="mr-1 d-inline-block align-top" width="45" height="45">
         <strong class="align-middle custom-nav-text nav-text">Universal Health Profile</strong>
       </a>
@@ -50,28 +50,20 @@
             <a id="requests" style="display: none" class="nav-link nav-text" href="/requests.html">Requests</a>
           </li>
         </ul>
-        <button id="reset-table" style="display: true;" class="nav-item mr-4 nav-text btn btn-primary" onclick="resetBilling()">Reset</button>
-        <button id="sign-out" style="display: true" class="nav-item mr-4 nav-text btn btn-outline-dark" onclick="signOut()">Logout</button>
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" id="account" aria-expanded="false">Omar Abouelazm</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="profile.html">Edit Profile</a>
+              <a class="dropdown-item" href="index.html" onclick="signOut()">Log Out</a>
+            </div>
+        </div>
 
       </div>
     </nav>
 
-
-
-
     <div class="container-fluid mb-4">
       <hr class="hr-styles mt-0 bg-dark">
     </div>
-
-    <!-- Setting up the file tree/directory path nav bar  -->
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Billings</li>
-      </ol>
-    </nav>
-
-
 
     <!-- Setting up the overall container -->
     <div class="container-fluid mu-4 my-3">
@@ -149,25 +141,6 @@
           </div>
         </div>
       </div>
-      <div class="row justify-content-around">
-        <div class="col-8">
-          <div class="alert alert-success my-2">
-            <h5 class="alert-heading"> &nbsp; Alert</h5>
-            <br>
-            <img src="">
-            <div class="container">
-              <div class="row row-col-2 /*justify-content-around*/ ">
-                <div class="col-1">
-            <hr class="hr-styles mt-0 bg-dark" style="width: 150%; transform: rotate(90deg);">
-            </div>
-            <div class="col-8">
-            <span>Welcome to the Billings Page. Make sure to keep updated</span>
-            </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Setting up the footer -->
@@ -188,7 +161,7 @@
 
       </div>
     </footer>
-    
+
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="  crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
