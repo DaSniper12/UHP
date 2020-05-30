@@ -40,20 +40,16 @@ function viewProfile() {
 }
 
 var appointmentNumber = 0;
-
 function getAppointmentNumber() {
 
 }
-
 function openAppointment() {
 
 }
-
 function submitAppointment() {
     appointmentNumber = getAppointmentNumber() + 1;
 
 }
-
 function displayAppointments() {
     var doctorName = "";
     var date = "";
@@ -62,24 +58,27 @@ function displayAppointments() {
 }
 
 function createAppointmentDiv(divNumber, doctorName, date) {
-  if ($("#gridCheck").is(":checked")) {
-    let template = '<div class="container mt-5" id="futureAppoint">' +
-                   '  <div class="card">' +
-                   '    <div class="card-body">' +
-                   '      <div class="row justify-content-between">' +
-                   '        <div class="col my-auto">Appointment Number - ' + divNumber + '</div>' +
-                   '        <div class="col-3">' +
-                   '          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#appointmentInfo" onclick="">Show more</button>' +
-                   '        </div>' +
-                   '      </div>' +
-                   '    </div>' +
-                   '  </div>'
-                   '</div>';
+  let template = '<div class="container mt-5" id="appoint' + divNumber + '">' +
+                 '  <div class="card">' +
+                 '    <div class="card-body">' +
+                 '      <div class="row justify-content-between">' +
+                 '        <div class="col my-auto">' + date + '</div>' +
+                 '        <div class="col-3">' +
+                 '          <button type="button" class="btn btn-primary" id="modalToggle-' + divNumber + '">Show more</button>' +
+                 // '          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#appointmentInfo" onclick="">Show more</button>' +
+                 '        </div>' +
+                 '      </div>' +
+                 '    </div>' +
+                 '  </div>'
+                 '</div>';
+  $("#appointments").append(template);
+  $("#modalToggle-" + divNumber).click(() => {
+    document.getElementById('date').value = date;
+    document.getElementById('doctor').value = doctorName;
+    $('#appointmentInfo').modal('show');
+  })
+}
 
-      $("#futureAppoint").append(template);
-    }
-  }
-  
 function createRequestDiv (divNumber, requestNum, date, store, item, address, cancelled, completed, phoneNumber, username, testMode) {
   let requestString = requestNum.slice(1)
   console.log(requestString);

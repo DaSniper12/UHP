@@ -49,8 +49,8 @@
         <h1 class="title">Appointments</h1>
       </div>
     </div>
-    <div class="container mt-5" id="futureAppoint">
-      <div class="card">
+    <div class="container mt-5" id="appointments">
+      <!-- <div class="card">
         <div class="card-body">
           <div class="row justify-content-between">
             <div class="col my-auto">Appointment Number</div>
@@ -59,7 +59,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     </br>
@@ -71,7 +71,7 @@
       </button>
     </div>
 
-    <!-- Modal -->
+    <!-- New Appointmnet Modal -->
     <div class="modal fade" id="newAppointment" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="newAppointmentLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -102,13 +102,12 @@
                 Agree to <a href="#">Terms and Conditions</a>
               </label>
             </div>
-            <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="displayAppointments()">Submit</button>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="submitAppointmentData()">Submit</button>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Modal -->
+    <!-- Appointmnet Info Modal -->
     <div class="modal fade" id="appointmentInfo" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="appointmentInfoLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
